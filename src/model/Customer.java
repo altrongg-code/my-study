@@ -3,8 +3,15 @@ package model;
 public class Customer {
 	private String name;
 	private int password;
-	private String regiDate;
-	private String endDate;
+	
+	
+	public Customer() {}
+	
+	public Customer(String name, int password) {
+		this.name = name;
+		this.password = password;
+	
+	}
 	
 	public String getName() {
 		return name;
@@ -17,18 +24,6 @@ public class Customer {
 	}
 	public void setPassword(int password) {
 		this.password = password;
-	}
-	public String getRegiDate() {
-		return regiDate;
-	}
-	public void setRegiDate(String regiDate) {
-		this.regiDate = regiDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
 	}
 	
 	

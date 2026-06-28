@@ -1,13 +1,26 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Chester {
-	private int cabinetNum; // 물품 이름을 저장하는 파일의 이름이 될 예정 인덱스
-	private String contents;
-	private int basicCharge;
-	private int extraCharge;
-	private int modify_Num;
 	
-	public Chester() {}
+	protected int cabinetNum; // 물품 이름을 저장하는 파일의 이름이 될 예정 인덱스
+	protected String contents;
+	protected int basicCharge;
+	protected int extraCharge;
+	protected int modify_Num;
+	protected boolean empty;
+	protected String regiDate;
+	protected String endDate;
+	
+	public Chester() {
+		
+		modify_Num = 0;
+		empty = true;
+		modify_Num = 0;
+	}
 	
 	
 	public Chester(int cabinetNum, String contents) {
@@ -16,6 +29,16 @@ public class Chester {
 	}
 	
 	
+	public boolean isEmpty() {
+		return empty;
+	}
+
+
+	public void setEmpty(boolean empty) {
+		this.empty = empty;
+	}
+
+
 	public int getModify_Num() {
 		return modify_Num;
 	}
@@ -49,10 +72,56 @@ public class Chester {
 		this.extraCharge = extraCharge;
 	}
 	
-	public int calculCharge(int day) {
-		int charge = getBasicCharge()*(getModify_Num()+1)+getExtraCharge()*day;
+	public int calculCharge() {
+		int charge = getBasicCharge()*(getModify_Num()+1)+getExtraCharge()*calculDate(regiDate, endDate);
 		return charge;
 	}
+	public int calculDate(String regiDate, String endDate) {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		
+		try{
+			Date startDate = formatter.parse(regiDate);
+			Date lastDate = formatter.parse(endDate);
+			int dif = (int) ((lastDate.getTime()-startDate.getTime()) / (24*60*60*1000));
+			return dif;
+		}
+		catch(ParseException e) {
+			e.printStackTrace();
+			System.out.println("오류발생 Large");
+		}
+		
+		return 0;
+	}
+
+
+	public String getRegiDate() {
+		return regiDate;
+	}
+
+
+	public void setRegiDate(String regiDate) {
+		this.regiDate = regiDate;
+	}
+
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Chester [보관함 번호=" + cabinetNum + ", 내용물=" + contents + "]";
+	}
 	
+	public int calculDate(int regiDate, int endDate) {
+		
+		return 0;
+	}
 	
 }

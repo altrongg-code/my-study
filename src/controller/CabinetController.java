@@ -4,8 +4,9 @@ import model.*;
 import model.Customer;
 
 public class CabinetController {
-	Chester[] chester = new Chester[30];
-	Customer[] customer = new Customer[30];
+	private Chester[] chester = new Chester[30];
+	private Customer[] customer = new Customer[30];
+	
 	public CabinetController(){
 		super();
 		for(int i = 0; i<20; i++) {
@@ -14,22 +15,49 @@ public class CabinetController {
 		for(int i = 20; i<30; i++) {
 			chester[i] = new LargeChester();
 		}
-	
-		
-	}
-	public void insertCustomer(SmallChester sc,int index) {
-		chester[index-1] = sc;
 	}
 	
-	public void insertCustomer(LargeChester lc,int index) {
-		chester[index-1+20] = lc;
+	public void initializeSmall(int index) {
+		chester[index] = new SmallChester();
 	}
-	
+	public void initializeLarge(int index) {
+		chester[index] = new LargeChester();
+	}
+	public int calculCharge(int index) {
+		return chester[index].calculCharge();
+	}
+	public void setContents(int index, String contents) {
+		chester[index].setContents(contents);
+	}
+	public String getContents(int index) {
+		return chester[index].getContents();
+	}
+	public void setRegiDate(int index, String regiDate) {
+		chester[index].setRegiDate(regiDate);
+	}
+	public void setEndDate (int index, String endDate) {
+		chester[index].setEndDate(endDate);
+	}
+	public boolean isEmpty(int index) {
+		return chester[index].isEmpty();
+	}
+	public void setEmpty(int index, boolean tf) {
+		chester[index].setEmpty(tf);
+	}
+	public void setCabinetNum(int index) {
+		chester[index].setCabinetNum(index+1);
+	}
 	public void insertCustomer(Customer c,int index) {
-		customer[index-1] = c;
+		customer[index] = c;
 	}
-	
-	
-	
+	public void setPassword(int index, int password) {
+		customer[index].setPassword(password);
+	}
+	public int getPassword(int index) {
+		return customer[index].getPassword();
+	}
+	public String getName(int index) {
+		return customer[index].getName();
+	}
 	
 }
