@@ -16,7 +16,17 @@ public class CabinetController {
 			chester[i] = new LargeChester();
 		}
 	}
+	public void appendContents(int index, String contents) {
+		String modifiedContents = chester[index].getContents()+", "+contents; 
+		chester[index].setContents(modifiedContents);
+	}
 	
+	public void plusModifyNum(int index) {
+		chester[index].setModify_Num(chester[index].getModify_Num()+1);
+	}
+	public void insertCustomer(Customer c,int index) {
+		customer[index] = c;
+	}
 	public void initializeSmall(int index) {
 		chester[index] = new SmallChester();
 	}
@@ -47,13 +57,10 @@ public class CabinetController {
 	public void setCabinetNum(int index) {
 		chester[index].setCabinetNum(index+1);
 	}
-	public void insertCustomer(Customer c,int index) {
-		customer[index] = c;
-	}
-	public void setPassword(int index, int password) {
+	public void setPassword(int index, String password) {
 		customer[index].setPassword(password);
 	}
-	public int getPassword(int index) {
+	public String getPassword(int index) {
 		return customer[index].getPassword();
 	}
 	public String getName(int index) {

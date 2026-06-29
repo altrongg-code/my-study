@@ -20,12 +20,7 @@ public class LargeChester extends Chester{
 		basicCharge=5000;
 		extraCharge=3000;
 	}
-	public LargeChester(int cabinetNum, String contents) {
-		super.setCabinetNum(cabinetNum);
-		super.setContents(contents);
-		
-		
-	}
+	
 	/*
 	public int calculDate(String regiDate, String endDate) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");

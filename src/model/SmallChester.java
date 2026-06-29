@@ -20,12 +20,8 @@ public class SmallChester extends Chester{
 		basicCharge = 3000;
 		extraCharge = 2000;
 	}
-	public SmallChester(int cabinetNum, String contents) {
-		super.setCabinetNum(cabinetNum);
-		super.setContents(contents);
-		
-		
-	}
+	
+
 	/*
 	public int calculCharge() {
 		int charge = getBasicCharge()*(getModify_Num()+1)+getExtraCharge()*calculDate(regiDate, endDate);

@@ -19,7 +19,6 @@ public class Chester {
 		
 		modify_Num = 0;
 		empty = true;
-		modify_Num = 0;
 	}
 	
 	
@@ -87,7 +86,7 @@ public class Chester {
 		}
 		catch(ParseException e) {
 			e.printStackTrace();
-			System.out.println("오류발생 Large");
+			System.out.println("오류발생");
 		}
 		
 		return 0;
